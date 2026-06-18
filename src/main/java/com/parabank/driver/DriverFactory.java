@@ -9,9 +9,7 @@ public class DriverFactory {
     public static void initDriver() {
         WebDriverManager.chromedriver().setup();
 
-        DriverManager.setDriver(
-                new ChromeDriver()
-        );
+        DriverManager.setDriver(new ChromeDriver());
 
         DriverManager.getDriver().manage().window().maximize();
     }

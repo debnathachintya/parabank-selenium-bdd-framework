@@ -9,16 +9,12 @@ import org.testng.Assert;
 public class LoginSteps {
     @Given("user launches ParaBank application")
     public void userLaunchesParaBankApplication() {
-
-        DriverManager.getDriver()
-                .get(ConfigReader.get("url"));
+        DriverManager.getDriver().get(ConfigReader.get("url"));
     }
 
     @Then("home page should be displayed")
     public void homePageShouldBeDisplayed() {
-
-        String title =
-                DriverManager.getDriver().getTitle();
+        String title = DriverManager.getDriver().getTitle();
 
         Assert.assertTrue(title.contains("ParaBank"));
     }
