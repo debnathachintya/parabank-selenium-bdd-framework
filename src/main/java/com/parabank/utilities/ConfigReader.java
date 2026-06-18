@@ -6,19 +6,18 @@ import java.io.FileInputStream;
 import java.util.Properties;
 
 public class ConfigReader {
-    private static Properties properties;
+    private static final Properties PROPERTIES = new Properties();
 
     static {
         try {
             FileInputStream fis = new FileInputStream(FrameworkConstants.CONFIG_FILE_PATH);
-            properties = new Properties();
-            properties.load(fis);
+            PROPERTIES.load(fis);
         } catch (Exception e) {
-            throw new RuntimeException(e);
+            throw new RuntimeException("Unable to load config.properties",e);
         }
     }
 
     public static String get(String key) {
-        return properties.getProperty(key);
+        return PROPERTIES.getProperty(key);
     }
 }
