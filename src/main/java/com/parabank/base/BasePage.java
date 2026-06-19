@@ -2,18 +2,19 @@ package com.parabank.base;
 
 import com.parabank.driver.DriverManager;
 import org.openqa.selenium.By;
+import com.parabank.utilities.WaitFactory;
 
 public class BasePage {
     protected void click(By locator) {
-        DriverManager.getDriver().findElement(locator).click();
+        WaitFactory.waitForElementClickable(locator).click();
     }
 
     protected void enterText(By locator, String value) {
-        DriverManager.getDriver().findElement(locator).sendKeys(value);
+        WaitFactory.waitForElementVisible(locator).sendKeys(value);
     }
 
     protected String getText(By locator) {
-        return DriverManager.getDriver().findElement(locator).getText();
+        return WaitFactory.waitForElementVisible(locator).getText();
     }
 
     protected String getTitle() {
